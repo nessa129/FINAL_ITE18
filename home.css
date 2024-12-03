@@ -1,0 +1,305 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: url(img/bg.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  background: rgba(10, 147, 150, 0.7); /* Aqua blue tint with 20% opacity */
+  background-size: cover;
+  z-index: -1; /* Ensure it sits behind the content */
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #D9D9D9;
+  padding: 5px 30px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+  opacity: 0.70;
+}
+
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo h1 {
+  font-family: 'Kreon', serif; /* Apply the Kreon font */
+  font-size: 28px; /* Adjust the size as needed */
+  font-weight: 500; /* Optional: Choose weight (400, 500, 700) */
+  margin: 0; /* Remove default margin */
+  color: #014849; /* Adjust the text color */
+}
+
+
+header .logo img {
+  height: 85px;
+  margin-right: 10px;
+}
+
+header .icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header .icons i {
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+}
+
+header .icons img.user-icon {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+header .icons i:hover {
+  color: #000; 
+}
+
+/* Sidebar Menu */
+#sidebar-menu {
+  position: absolute;
+  top: 105px;
+  right: 3px;
+  width: 200px;
+  background: #D9D9D9;
+  opacity: 0.70;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  z-index: 100;
+  text-align: center; 
+}
+
+#sidebar-menu.visible {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+#sidebar-menu ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+#sidebar-menu ul li {
+  padding: 15px 0;
+}
+
+#sidebar-menu ul li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#sidebar-menu ul li a:hover {
+  color: #149ea3; /* Highlight color on hover */
+}
+
+/* Close Button */
+#close-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+}
+
+#close-icon:hover {
+  color: #ff6b6b; /* Red hover effect */
+}
+
+/* General card style */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin-top: 40px; /* Adjust the space above the section */
+}
+
+/* Rectangle 23 */
+.rectangle-23 {
+  position: relative;
+  width: 300px;  /* Increase width */
+  height: 290px; /* Increase height */
+  background: #FFFFFF;
+  opacity: 0.8;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Rectangle 24 */
+.rectangle-24 {
+  position: relative;
+  width: 300px;  /* Increase width */
+  height: 290px; /* Increase height */
+  background: #FFFFFF;
+  opacity: 0.8;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.line {
+  width: 100%; /* Adjusted width relative to the card */
+  height: 1px; /* Thickness of the line */
+  background-color: #000000; /* Line color */
+}
+
+
+/* Button Styling Inside Rectangles */
+button {
+  align-self: center; /* Center the button */
+  background-color: #097476;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Kreon', sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0A9396;
+  color: #000;
+}
+
+
+
+.card h3 {
+  font-family: 'Kreon', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 21px; /* Slightly increased font size for better readability */
+  line-height: 10px; /* Adjusted line height */
+  color: #FF6200; /* Retain the orange color */
+  text-align: center; /* Center the heading inside the card */
+  margin: 0;
+  position: relative; /* Default positioning */
+}
+
+
+.rectangle-23 p {
+  font-family: 'Kreon', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px; /* Slightly larger font size */
+  line-height: 19px;
+  text-align: center; /* Centers the text */
+  color: #000000;
+}
+
+
+/* Paragraph styling for Rectangle 24 (no need for span) */
+.rectangle-24 p {
+  font-family: 'Kreon', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px; /* Slightly larger font size */
+  line-height: 12px;
+  text-align: left; /* Center the text inside Rectangle 24 */
+  color: #000000;
+  margin: 0; /* Remove any extra margins */
+}
+
+.rectangle-23:hover, .rectangle-24:hover {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+
+/* Rectangle 22 */
+.rectangle-22 {
+  box-sizing: border-box;
+  position: relative; /* Relative for child alignment */
+  width: 650px; /* Increased width */
+  height: 100px; /* Increased height */
+  margin: 30px auto; /* Center horizontally with more margin */
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 15px;
+  display: flex; /* Flexbox for alignment */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px; /* Added padding for spacing */
+}
+
+/* Welcome Title (h2) */
+.welcome h2 {
+  font-family: 'Kreon', sans-serif;
+  font-size: 30px; /* Increased font size */
+  font-weight: bold;
+  color: #1D5E60;
+  margin: 0;
+}
+
+/* Welcome Subtitle (p) */
+.welcome p {
+  font-family: 'Kreon', sans-serif;
+  font-size: 18px; /* Slightly larger font size */
+  font-weight: 500;
+  color: #FF6200;
+  margin: 10px 0 0 0; /* Added more space below the title */
+}
+
+/* Footer Rectangle (Rectangle 21) */
+.footer-rectangle {
+  box-sizing: border-box;
+  position: fixed; /* Stays fixed at the bottom */
+  width: 100%; /* Full width of the viewport */
+  height: 35px; /* Adjusted height */
+  bottom: 0; /* Aligns to the bottom of the viewport */
+  background: #FFFFFF; /* Background color */
+  border-top: 1px solid #000000; /* Border for a clean separation */
+  display: flex; /* Use Flexbox for alignment */
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+}
+
+/* Footer Text */
+.footer-rectangle p {
+  font-family: 'Kreon', sans-serif; /* Kreon font */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px; /* Slightly increased for better readability */
+  line-height: 15px;
+  color: #097476; /* Text color */
+  margin: 0; /* Remove default margins */
+  text-align: center; /* Center the text */
+}
+
