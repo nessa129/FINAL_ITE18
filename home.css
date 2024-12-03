@@ -303,3 +303,64 @@ button:hover {
   text-align: center; /* Center the text */
 }
 
+/* User Dropdown Menu */
+#user-menu {
+  position: absolute;
+  top: 95px; /* Position it below the user icon */
+  right: 3px;
+  width: 200px;
+  background: #D9D9D9;
+  opacity: 0.95;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  z-index: 100;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Title and Divider */
+#user-menu h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 10px;
+}
+
+#user-menu hr {
+  border: none;
+  border-top: 1px solid #000;
+  margin: 5px 0;
+}
+
+/* Menu Items */
+#user-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#user-menu ul li {
+  padding: 15px 0;
+}
+
+#user-menu ul li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Close Icon in User Menu */
+#user-menu #user-menu-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+}
+
+#user-menu #user-menu-close:hover {
+  color: #ff6b6b; /* Red hover effect */
+}
