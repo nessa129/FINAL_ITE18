@@ -6,7 +6,7 @@
     <title>Membership Status</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kreon:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="membership.css">
+    <link rel="stylesheet" href="renewal.css">
 </head>
 <body>
     <header>
@@ -16,7 +16,7 @@
         </div>
         <div class="icons">
           <i class="fa-solid fa-bell"></i>
-          <img src="img/user.png" alt="User" class="user-icon">
+          <img src="/img/user.png" alt="User" class="user-icon">
           <i class="fa-solid fa-bars" id="menu-icon"></i> 
         </div>
       </header>
@@ -25,7 +25,7 @@
       <div id="sidebar-menu">
         <i class="fa-regular fa-circle-xmark" id="close-icon"></i>
         <ul>
-          <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#home" class="active">Home</a></li>
           <li><a href="membership.html">Membership</a></li>
           <li><a href="#">Learning Materials</a></li>
           <li><a href="#">Events</a></li>
@@ -33,17 +33,26 @@
         </ul>
       </div>
 
-      <div class="container">
-        <h1>Membership Status</h1>
-        <label for="memberId">Enter ID Number:</label>
-        <input type="text" id="memberId" required>
-        <button onclick="checkMembershipStatus()">Check Status</button>
-    
-        <div class="result" id="result"></div>
-        <a href="renewal.html" id="renewButton" style="display: none;" onclick="redirectToRenewPage()">Renew Now</a>
+      <div class="membership-container">
+        <h2>Renew Your Membership</h2>
+        <div class="membership-details">
+            <p><strong>Status:</strong> <span id="checkMembershipStatus"></span></p>
+            <p><strong>Current Expiry Date:</strong> <span id="currentExpiryDate">[MM/DD/YYYY]</span></p>
 
+            <label for="renewalPeriod"><strong>Renewal Period:</strong></label>
+            <select id="renewalPeriod">
+                <option value="">Select</option>
+                <option value="1">1 Year</option>
+                <option value="2">2 Years</option>
+                <option value="3">3 Years</option>
+            </select>
+
+            <p><strong>New Expiry Date:</strong> <span id="newExpiryDate">[Calculated based on selection]</span></p>
+
+            <button class="confirm-btn" onclick="submitRenewal()">Confirm and Submit</button>
+        </div>
     </div>
-    
+
     <script src="script.js"></script> 
 </body>
 
