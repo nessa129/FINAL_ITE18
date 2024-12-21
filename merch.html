@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info-System</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kreon:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+  <link rel="stylesheet" href="merch.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="isslogo.png" alt="Logo">
+      <h1>INFO-SYSTEM</h1>
+    </div>
+    <div class="icons">
+      <i class="fa-solid fa-bell"></i>
+      <img src="user.png" alt="User" class="user-icon">
+      <i class="fa-solid fa-bars" id="menu-icon"></i> 
+    </div>
+  </header>
+  <div id="sidebar-menu">
+    <i class="fa-regular fa-circle-xmark" id="close-icon"></i>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">Membership</a></li>
+      <li><a href="#">Learning Materials</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Merchandise</a></li>
+    </ul>
+  </div>
+
+
+    <div class="rectangle-22" id="contents">
+    <div class="Merch">
+        <h2> </h2>
+    </div>
+    <div class="title">
+      <h1>Merchandise Listing</h1>
+    <div class="menuicon">
+      <i class="fa-solid fa-bars" id="menuicon"></i> 
+    </div>
+    </div>
+   <div class="line">
+     <div class="shirt">
+            <img src="shirt.jpg" alt="shirt"></div>
+      <div class="Text">
+                <li>Item Name: CSU-ISS T-shirt</li>
+                <li>Price: ₱380.00</li>
+                <li>Stocks: 123 Available</li>
+              </div>
+
+        <div class="addtocart">
+        <button onclick="AddtoCart()" id="cart">Add to Cart</button>
+        </div>
+
+    
+</div>
+
+<div id="sidemenu">
+    <div class="paragraph">
+      <br>
+     <h5> Item Name: [Qty: 1]</h5>
+     <br>
+     <br>
+     <br>
+      <span>Total Price: ₱380.00</span></h5>
+     <div class="checkout">
+      <button id="check">Checkout</button>
+      </div>
+    </div>
+</div>  
+    
+</main>
+
+    <footer class="footer-rectangle">
+      <p>ABOUT US <span class="space"></span> | <span class="space"></span> PRIVACY POLICY<span class="space"></span> | <span class="space"></span> CONTACT US</p>
+    </footer>
+    
+
+    <script src="merch.js"></script>
+</body>
+</html>
+

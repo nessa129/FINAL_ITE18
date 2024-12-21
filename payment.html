@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRE ORDER</title>
+  <style>
+    @import url('https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css');
+    @import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
+    @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+    @import url('https://fonts.googleapis.com/css2?family=Kreon:wght@400;500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu');
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    section {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #5db8ac;
+}
+button {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  padding: 14px 22px;
+  border: none;
+  background: #40d9f4;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #26f2e1c7;
+}
+button.show-modal,
+.modal-box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+section.active .show-modal {
+  display: none;
+}
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+}
+section.active .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 380px;
+  width: 100%;
+  padding: 30px 20px;
+  border-radius: 24px;
+  background-color: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 1000;
+}
+section.active .modal-box {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.modal-box i {
+  font-size: 70px;
+  color: #40eef4;
+}
+.modal-box h2 {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.modal-box h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+}
+.modal-box .buttons {
+  margin-top: 25px;
+}
+.modal-box button {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin: 0 10px;
+}
+    
+    .container {
+      z-index: -1;
+      box-sizing: border-box;
+      background: url(bg.jpg) no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+    body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     background-size: cover;
+    
+}
+
+    .screen {
+      background: linear-gradient(90deg, #7FFFD4, hwb(177 0% 0%));
+      position: relative;
+      height: 600px;
+      width: 360px;
+    }
+    .screen__content {
+      z-index: 1;
+      position: relative;
+      height: 100%;
+    }
+    .screen__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      -webkit-clip-path: inset(0 0 0 0);
+      clip-path: inset(0 0 0 0);
+    }
+    .screen__background__shape {
+      transform: rotate(45deg);
+      position: absolute;
+    }
+    .screen__background__shape1 {
+      height: 520px;
+      width: 520px;
+      background: #FFF;
+      top: -50px;
+      right: 120px;
+      border-radius: 0 72px 0 0;
+    }
+    .screen__background__shape2 {
+      height: 220px;
+      width: 220px;
+      background: #7FFFD4;
+      top: -172px;
+      right: 0;
+      border-radius: 32px;
+    }
+    .screen__background__shape3 {
+      height: 540px;
+      width: 190px;
+      background: linear-gradient(270deg, #7FFFD4, #ffffff);
+      top: -24px;
+      right: 0;
+      border-radius: 32px;
+    }
+    .screen__background__shape4 {
+      height: 400px;
+      width: 200px;
+      background: #7FFFD4;
+      top: 420px;
+      right: 50px;
+      border-radius: 60px;
+    }
+    .login {
+      width: 320px;
+      padding: 30px;
+      padding-top: 156px;
+    }
+    .login__field {
+      padding: 20px 0px;
+      position: relative;
+    }
+    .login__icon {
+      position: absolute;
+      top: 30px;
+      color: #7875B5;
+    }
+    .login__input {
+      border: none;
+      border-bottom: 2px solid #D1D1D4;
+      background: none;
+      padding: 10px;
+      padding-left: 24px;
+      font-weight: 700;
+      width: 75%;
+      transition: 0.2s;
+    }
+    .login__input:active,
+    .login__input:focus,
+    .login__input:hover {
+      outline: none;
+      border-bottom-color: #7FFFD4;
+    }
+    .login__submit {
+      background: #fff;
+      font-size: 14px;
+      margin-top: 30px;
+      padding: 16px 20px;
+      border-radius: 26px;
+      border: 1px solid #D4D3E8;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      color: #000000;
+      box-shadow: 0px 2px 2px #000002;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .login__submit:active,
+    .login__submit:focus,
+    .login__submit:hover {
+      border-color: #000000;
+      outline: none;
+    }
+    .button__icon {
+      font-size: 24px;
+      margin-left: auto;
+      color: #000000;
+    }
+    .social-login {
+      position: absolute;
+      height: 140px;
+      width: 160px;
+      text-align: center;
+      bottom: 0px;
+      right: 0px;
+      color: #fff;
+    }
+    .social-icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .social-login__icon {
+      padding: 20px 10px;
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 0px 0px 8px #000000;
+    }
+    .social-login__icon:hover {
+      transform: scale(1.5);
+    }
+
+    header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#7FFFD4;
+  padding: 5px 30px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+  opacity: 0.70;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo h1 {
+  font-family: 'Kreon', serif; /* Apply the Kreon font */
+  font-size: 28px; /* Adjust the size as needed */
+  font-weight: 500; /* Optional: Choose weight (400, 500, 700) */
+  margin: 0; /* Remove default margin */
+  color: #014849; /* Adjust the text color */
+}
+
+
+header .logo img {
+  height: 85px;
+  margin-right: 10px;
+}
+
+header .icons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-right: 2rem;
+}
+
+header .icons i {
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+}
+
+header .icons img.usericon {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+header .icons i:hover {
+  color: #000; 
+}
+
+/* Sidebar Menu */
+#sidebar-menu {
+  position: absolute;
+  top: 105px;
+  right: 3px;
+  width: 200px;
+  background: #D9D9D9;
+  opacity: 0.70;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  z-index: 100;
+  text-align: center; 
+}
+
+#sidemenu {
+  width: 230px; 
+  height: 333px;
+  position: absolute;
+  background: #D9D9D9;
+  display: none;
+  z-index: 100;
+  text-align: center; 
+  margin-left: 46.6rem;
+  margin-bottom: 2.6rem;
+  background-color: #D9D9D9; 
+  margin-bottom: -0.7rem;
+}
+
+#sidebar-menu.visible {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+#payment.visible {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+#sidemenu.visible {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+#sidebar-menu ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+#sidebar-menu ul li {
+  padding: 15px 0;
+}
+
+#sidebar-menu ul li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#sidebar-menu ul li a:hover {
+  color: #149ea3; /* Highlight color on hover */
+}
+
+/* Close Button */
+#close-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+  
+}
+
+#close-icon:hover {
+  color: #ff6b6b; /* Red hover effect */
+}
+
+.footer-rectangle {
+  box-sizing: border-box;
+  position: fixed; 
+  width: 150%; 
+  height: 35px; 
+  bottom: 0; 
+  background: #FFFFFF; 
+  border-top: 1px solid #000000; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+
+/* Footer Text */
+.footer-rectangle p {
+  font-family: 'Kreon', sans-serif; /* Kreon font */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px; /* Slightly increased for better readability */
+  line-height: 15px;
+  color: #097476; /* Text color */
+  margin: 0; /* Remove default margins */
+  text-align: center; /* Center the text */
+  cursor: pointer;
+  padding-right: 40rem;
+}
+
+
+  </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+          <img src="isslogo.png" alt="Logo">
+          <h1>INFO-SYSTEM</h1>
+        </div>
+        <div class="icons">
+          <i class="fa-solid fa-bell"></i>
+          <img src="user.png" alt="User" class="usericon">
+          <i class="fa-solid fa-bars" id="menu-icon"></i> 
+        </div>
+      </header>
+      <div id="sidebar-menu">
+        <i class="fa-regular fa-circle-xmark" id="closeicon"></i>
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Membership</a></li>
+          <li><a href="#">Learning Materials</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Merchandise</a></li>
+        </ul>
+      </div>
+
+    <section>
+        <div class="container">
+          <div class="screen">
+            <div class="screen__content">
+              <form class="login">
+                <h1>PRE ORDER</h1>
+                <div class="login__field">
+                  <input type="text" class="login__input" placeholder="Name">
+                </div>
+                <div class="login__field">
+                  <input type="number" class="login__input" placeholder="ID Number">
+                </div>
+                <button type="button" class="button login__submit">
+                  <span class="button__text">Enter</span>
+                  <i class="button__icon fas fa-chevron-right"></i>
+                </button>
+              </form>
+              <div class="social-login">
+                <h3>CSU-ISS</h3>
+              </div>
+            </div>
+            <div class="screen__background">
+              <span class="screen__background__shape screen__background__shape4"></span>
+              <span class="screen__background__shape screen__background__shape3"></span>
+              <span class="screen__background__shape screen__background__shape2"></span>
+              <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-box">
+          <i class="fa-regular fa-circle-check"></i>
+          <h2>Completed</h2>
+          <h3>You have successfully submitted the pre-order!</h3>
+          <div class="buttons">
+            <button class="close-btn">Ok, Close</button>
+          </div>
+        </div>
+        <footer class="footer-rectangle">
+            <p>ABOUT US <span class="space"></span> | <span class="space"></span> PRIVACY POLICY<span class="space"></span> | <span class="space"></span> CONTACT US</p>
+          </footer>
+      </section>
+      
+  <script>
+    const section = document.querySelector("section");
+const modalBox = document.querySelector(".modal-box");
+const showBtn = document.querySelector(".login__submit");
+const closeBtn = document.querySelector(".close-btn");
+
+// Show modal when the Enter button is clicked
+showBtn.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent form submission
+  section.classList.add("active");
+});
+
+// Close modal when the Close button is clicked
+closeBtn.addEventListener("click", () => {
+  section.classList.remove("active");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const sidebarMenu = document.getElementById("sidebar-menu");
+  
+    // Toggle menu visibility
+    menuIcon.addEventListener("click", () => {
+        sidebarMenu.classList.toggle("visible");
+    });
+  
+    // Close the menu
+    closeIcon.addEventListener("click", () => {
+        sidebarMenu.classList.remove("visible");
+    });
+  });
+
+  </script>
+</body>
+</html>
+</body>
+</html>
