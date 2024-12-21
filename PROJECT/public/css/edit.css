@@ -1,0 +1,467 @@
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background: url(../img/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  background: rgba(10, 147, 150, 0.7); /* Aqua blue tint with 20% opacity */
+  background-size: cover;
+  z-index: -1; /* Ensure it sits behind the content */
+}
+
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #D9D9D9;
+  padding: 5px 30px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+  opacity: 0.70;
+}
+
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo h1 {
+  font-family: 'Kreon', serif; /* Apply the Kreon font */
+  font-size: 28px; /* Adjust the size as needed */
+  font-weight: 500; /* Optional: Choose weight (400, 500, 700) */
+  margin: 0; /* Remove default margin */
+  color: #014849; /* Adjust the text color */
+}
+
+
+header .logo img {
+  height: 85px;
+  margin-right: 10px;
+}
+
+header .icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header .icons i {
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+}
+
+header .icons img.user-icon {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+header .icons i:hover {
+  color: #000; 
+}
+
+
+/* Sidebar Menu */
+#sidebar-menu {
+  position: absolute;
+  top: 105px;
+  right: 3px;
+  width: 200px;
+  background: #D9D9D9;
+  opacity: 0.70;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  z-index: 200;
+  text-align: center; 
+}
+
+#sidebar-menu.visible {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+#sidebar-menu ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+#sidebar-menu ul li {
+  padding: 15px 0;
+}
+
+#sidebar-menu ul li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#sidebar-menu ul li a:hover {
+  color: #149ea3; /* Highlight color on hover */
+}
+
+/* Close Button */
+#close-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+}
+
+#close-icon:hover {
+  color: #ff6b6b; /* Red hover effect */
+}
+
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 20px; 
+}
+
+.profile-box {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 15px;
+  width: 60%;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 350px; 
+}
+
+.profile-box h2 {
+  font-family: 'Kreon', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #FF6200; /* Orange color for the title */
+  margin-top: 0;
+  border-bottom: 1px solid #000; /* Underline color and thickness */
+  padding-bottom: 2px;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-picture-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.profile-picture {
+  width: 130px;
+  height: 130px;
+  border-radius: 6%;
+  border: 2px solid #000000;
+}
+
+.upload-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: #FF6200;
+  border: none;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.upload-icon:hover {
+  color: #0A9396;
+}
+
+.upload-icon i {
+  pointer-events: none; /* Prevent interaction with the icon directly */
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.profile-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distributes content evenly */
+  width: 100%; /* Ensures full width of the container */
+  font-family: 'Kreon', sans-serif;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.8; /* Increases spacing between lines */
+  margin: 20px 0;
+  gap: 20px; 
+}
+
+.profile-column {
+  width: 48%; /* Each column takes up half the width */
+  min-width: 250px;
+}
+
+.profile-column p {
+  font-size: 14px; /* Slightly smaller font for labels */
+  margin: 5px 0;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  align-items: center; /* Align label and input vertically */
+  margin-bottom: 10px;
+}
+
+.form-group p {
+  width: 120px; /* Fixed width for labels */
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.input-field {
+  flex: 1; /* Ensures input fields fill the remaining space */
+  padding: 5px;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333333;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.input-field:focus {
+  border-color: #FF6200;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 98, 0, 0.5);
+}
+
+
+.edit-profile-btn {
+  background-color: #097476;
+  color: white;
+  padding: 7px 15px;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Kreon', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.edit-profile-btn:hover {
+  background-color: #0A9396;
+  color: #000000;
+  transition: 0.3s;
+}
+
+.edit-profile-btn:hover {
+  transform: scale(1.05); /* Slightly enlarges the button */
+}
+
+/* Footer Rectangle (Rectangle 21) */
+.footer-rectangle {
+  box-sizing: border-box;
+  position: fixed; /* Stays fixed at the bottom */
+  width: 100%; /* Full width of the viewport */
+  height: 35px; /* Adjusted height */
+  bottom: 0; /* Aligns to the bottom of the viewport */
+  background: #FFFFFF; /* Background color */
+  border-top: 1px solid #000000; /* Border for a clean separation */
+  display: flex; /* Use Flexbox for alignment */
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+}
+
+/* Footer Text */
+.footer-rectangle p {
+  font-family: 'Kreon', sans-serif; /* Kreon font */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px; /* Slightly increased for better readability */
+  line-height: 15px;
+  color: #097476; /* Text color */
+  margin: 0; /* Remove default margins */
+  text-align: center; /* Center the text */
+}
+
+/* User Dropdown Menu */
+#user-menu {
+  position: absolute;
+  top: 95px; /* Position it below the user icon */
+  right: 5px;
+  width: 200px;
+  background: #D9D9D9;
+  opacity: 0.95;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  z-index: 200;
+  text-align: center;
+  padding: 10px;
+}
+
+#user-menu.visible {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* Title and Divider */
+#user-menu h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 10px;
+}
+
+#user-menu hr {
+  border: none;
+  border-top: 1px solid #000;
+  margin: 5px 0;
+}
+
+/* Menu Items */
+#user-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#user-menu ul li {
+  padding: 15px 0;
+}
+
+#user-menu ul li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Close Icon in User Menu */
+#user-menu #user-menu-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+}
+
+#user-menu #user-menu-close:hover {
+  color: #ff6b6b; /* Red hover effect */
+}
+
+
+
+
+
+/* Responsive Design Enhancements */
+@media screen and (max-width: 768px) {
+  .profile-box {
+    width: 70%; /* Increase width to fit smaller screens */
+  }
+  .profile-box h2 {
+    font-size: 24px;
+  }
+
+  .profile-picture {
+    width: 90px;
+    height: 90px;
+  }
+
+  .profile-column {
+    width: 100%; /* Make columns stack vertically */
+  }
+
+  .form-group p {
+    margin-bottom: 2px; /* Minimal gap for compact spacing */
+    font-size: 12px;
+  }
+
+  .input-field {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .edit-profile-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .form-group {
+    margin-top: -7px;
+    margin-bottom: 5px; /* Slightly reduced spacing for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-box {
+    padding: 10px;
+  }
+
+  .profile-picture {
+    width: 80px;
+    height: 80px;
+  }
+
+  .edit-profile-btn {
+    width: 100%; /* Make button full-width on small screens */
+  }
+
+  .footer-rectangle p {
+    font-size: 14px;
+  }
+}
+
+.users-area {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between elements */
+}
+
+.notification-icon {
+  font-size: 23px;
+  color: black; /* Adjust as needed */
+  cursor: pointer;
+}
+
+.user-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: black; /* Adjust color */
+}
+
+.user-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%; /* Makes the image circular */
+  cursor: pointer;
+}
