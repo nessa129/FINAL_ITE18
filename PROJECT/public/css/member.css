@@ -307,6 +307,12 @@ header .icons i:hover {
   font-size: 23px;
   color: black; /* Adjust as needed */
   cursor: pointer;
+  transition: color 0.3s ease;
+  }
+  
+  /* Hover effect */
+.notification-icon:hover {
+  color: rgb(255, 136, 0); 
 }
 
 .user-name {
@@ -320,4 +326,31 @@ header .icons i:hover {
   height: 38px;
   border-radius: 50%; /* Makes the image circular */
   cursor: pointer;
+}
+
+/* Hover effect */
+.user-icon:hover {
+  transform: scale(1.1);
+}
+
+#menu-icon {
+  font-size: 22px; 
+  color: #000; 
+  cursor: pointer; 
+  
+  transition: transform 0.2s; 
+}
+
+#menu-icon:hover {
+  transform: scale(1.2); 
+  color: #007bff; 
+}
+
+
+@media (max-width: 768px) {
+
+  .logo img {
+    max-width: 70px; /* Reduce image size */
+  }
+
 }

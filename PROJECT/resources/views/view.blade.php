@@ -19,11 +19,11 @@
       <!-- Notification icon -->
     <i class="fa-solid fa-bell notification-icon"></i>
       <span class="user-name">{{ Auth::user()->name }}</span>
-      <img 
-    src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('img/user.png') }}" 
-    alt="User Icon" 
-    class="user-icon" 
-    id="user-icon">
+      <img src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('img/user.png') }}"  
+     alt="User Icon" 
+     class="user-icon" 
+     id="user-icon">
+
 
       
     <!-- Dropdown menu -->
@@ -35,7 +35,15 @@
         <li><a href="home">Home</a></li>
         <li><a href="view">View Profile</a></li>
         <li><a href="edit">Edit Profile</a></li>
-        <li><a href="login">Log Out</a></li>
+        <li>
+  <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+    @csrf
+    <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
+      Log Out
+    </button>
+  </form>
+</li>
+
       </ul>
     </div>
 
@@ -52,7 +60,7 @@
       <li><a href="membership">Membership</a></li>
       <li><a href="#">Learning Materials</a></li>
       <li><a href="#">Events</a></li>
-      <li><a href="#">Merchandise</a></li>
+      <li><a href="merch">Merchandise</a></li>
     </ul>
   </div>
 
@@ -65,34 +73,11 @@
         <h2>My Profile</h2>
         <div class="profile-content">
 
-      
-<!-- Profile Picture with Dropdown Menu -->
-
 <div class="profile-picture-container">
-  <img src="img/user.png" alt="Profile Picture" class="profile-picture" id="profile-pic-preview">
-  
-  <!-- Dropdown Button outside the box but near the box -->
-  <div class="dropdown">
-    <i class="fa-solid fa-ellipsis-vertical dropdown-icon" onclick="toggleDropdown()"></i>
-    
-    <!-- Dropdown Menu -->
-    <ul class="dropdown-menu" id="dropdown-menu">
-      <li onclick="viewProfile()">View Profile</li>
-      <li onclick="deleteProfile()">Delete Profile</li>
-      <li onclick="triggerFileUpload()">Upload</li>
-    </ul>
-  </div>
-  
-  <input type="file" id="upload-profile-pic" accept="image/*" style="display: none;" onchange="previewProfilePic(event)">
-</div>
-
-<!-- View Profile Modal (Hidden initially) -->
-<div id="view-profile-modal" class="view-profile-modal">
-  <div class="modal-content">
-    <span class="exit-icon" onclick="closeViewProfile()">×</span>
-    <img src="img/user.png" alt="Profile Picture" class="view-profile-picture" id="view-profile-pic">
-  </div>
-</div>
+<img 
+    src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('img/user.png') }}" 
+    alt="Profile Picture" 
+    class="profile-picture">
 
           <!-- Profile Details -->
 <div class="profile-details">
@@ -107,7 +92,12 @@
         </div>
         <div class="form-group">
             <p>Membership Status:</p>
-            <input value="{{ $user->membership_status }}" class="input-field" disabled/>
+           <input 
+    value="{{ $user->membership_expiry ? (now()->lte($user->membership_expiry) ? 'Active' : 'Inactive') : 'Inactive' }}" 
+    class="input-field" 
+    disabled 
+/>
+
         </div>
     </div>
 
@@ -122,7 +112,8 @@
         </div>
         <div class="form-group">
             <p>Renewal Date:</p>
-            <input value="{{ $user->renewal_date }}" class="input-field" disabled/>
+            <input value="{{ \Carbon\Carbon::parse($user->renewal_date)->format('F d, Y') }}" class="input-field" disabled/>
+
         </div>
     </div>
 </div>
@@ -140,7 +131,7 @@
   
 
   <footer class="footer-rectangle">
-    <p>About Us | Privacy Policy | Contact Us</p>
+    <p>2024 All Rights Reserved | Caraga State University-Main Campus</p>
   </footer>
   
 

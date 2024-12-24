@@ -35,7 +35,15 @@
         <li><a href="home">Home</a></li>
         <li><a href="view">View Profile</a></li>
         <li><a href="edit">Edit Profile</a></li>
-        <li><a href="login">Log Out</a></li>
+        <li>
+  <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+    @csrf
+    <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
+      Log Out
+    </button>
+  </form>
+</li>
+
       </ul>
     </div>
 
@@ -48,30 +56,31 @@
   <div id="sidebar-menu">
     <i class="fa-regular fa-circle-xmark" id="close-icon"></i>
     <ul>
-      <li><a href="#" class="active">Home</a></li>
+      <li><a href="home" class="active">Home</a></li>
       <li><a href="membership">Membership</a></li>
       <li><a href="#">Learning Materials</a></li>
       <li><a href="#">Events</a></li>
-      <li><a href="#">Merchandise</a></li>
+      <li><a href="merch">Merchandise</a></li>
     </ul>
   </div>
 
   <main>
-      <div class="container">
-        <h1>Membership Status</h1>
-        <label for="memberId">Enter ID Number:</label>
-        <input type="text" id="memberId" required>
-        <button id="checkButton" onclick="checkMembershipStatus()">Check Status</button>
+        <div class="container">
+            <h1>Membership Status</h1>
+            <label for="memberId">Enter your Student ID:</label>
+            <input type="text" id="memberId" required placeholder="Enter your Student ID">
+            <button id="checkButton" onclick="checkMembershipStatus()">Check Status</button>
 
-        <div class="result" id="result"></div>
-        <a href="renew" id="renewButton" style="display: none;" onclick="redirectToRenewPage()">Renew Now</a>
-    </div>
-</main>
+            <div class="result" id="result"></div>
+            <a href="renew" id="renewButton" style="display: none;" onclick="redirectToRenewPage()">Renew Now</a>
+        </div>
+    </main>
+
 
     <script src="{{ asset('js/member.js') }}"></script> 
 </body>
 
 <footer class="footer-rectangle">
-    <p>2024 All Rights Reserved | Caraga State University</p>
-</footer>
+    <p>2024 All Rights Reserved | Caraga State University-Main Campus</p>
+  </footer>
 </html>

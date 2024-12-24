@@ -36,7 +36,15 @@
         <li><a href="#">Home</a></li>
         <li><a href="view">View Profile</a></li>
         <li><a href="edit">Edit Profile</a></li>
-        <li><a href="login">Log Out</a></li>
+        <li>
+  <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+    @csrf
+    <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
+      Log Out
+    </button>
+  </form>
+</li>
+
       </ul>
     </div>
 
@@ -53,7 +61,7 @@
       <li><a href="membership">Membership</a></li>
       <li><a href="#">Learning Materials</a></li>
       <li><a href="#">Events</a></li>
-      <li><a href="#">Merchandise</a></li>
+      <li><a href="merch">Merchandise</a></li>
     </ul>
   </div>
 
@@ -94,7 +102,7 @@
   </main>
 
   <footer class="footer-rectangle">
-    <p>About Us | Privacy Policy | Contact Us</p>
+    <p>2024 All Rights Reserved | Caraga State University-Main Campus</p>
   </footer>
   
 

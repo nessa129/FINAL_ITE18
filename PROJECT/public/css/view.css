@@ -273,7 +273,7 @@ header .icons i:hover {
     font-family: 'Kreon', sans-serif;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 8px;
+    margin-top: 0;
   }
   
   .edit-profile-btn:hover {
@@ -503,6 +503,10 @@ header .icons i:hover {
       margin-top: -7px;
       margin-bottom: 5px; /* Slightly reduced spacing for smaller screens */
     }
+
+    .logo img {
+      max-width: 70px; /* Reduce image size */
+    }
   }
   
   @media screen and (max-width: 480px) {
@@ -534,7 +538,13 @@ header .icons i:hover {
     font-size: 23px;
     color: black; /* Adjust as needed */
     cursor: pointer;
+    transition: color 0.3s ease;
   }
+  
+  /* Hover effect */
+.notification-icon:hover {
+  color: rgb(255, 136, 0); 
+}
   
   .user-name {
     font-size: 12px;
@@ -549,3 +559,21 @@ header .icons i:hover {
     cursor: pointer;
     filter: brightness(1.1) contrast(1.2) saturate(1.1);
   }
+  
+/* Hover effect */
+.user-icon:hover {
+  transform: scale(1.1);
+}
+
+  #menu-icon {
+    font-size: 22px; 
+    color: #000; 
+    cursor: pointer; 
+    transition: transform 0.2s; 
+  }
+  
+  #menu-icon:hover {
+    transform: scale(1.2); 
+    color: #007bff; 
+  }
+  

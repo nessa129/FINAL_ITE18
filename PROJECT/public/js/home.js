@@ -29,19 +29,21 @@ document.addEventListener("DOMContentLoaded", () => {
       sidebarMenu.classList.remove("visible");
     });
   }
+
+  
 });
 
 
-function previewProfilePic(event) {
+document.getElementById("upload-profile-pic").addEventListener("change", (event) => {
   const file = event.target.files[0];
   if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      // Update both the profile picture and the user icon
-      document.getElementById("profile-pic-preview").src = e.target.result;
-      document.getElementById("user-icon").src = e.target.result;  // Update the user icon
-    };
-    reader.readAsDataURL(file);
-    alert("Profile picture updated.");
+      const reader = new FileReader();
+      reader.onload = function (e) {
+          const previewUrl = e.target.result;
+          document.getElementById("profile-pic-preview").src = previewUrl; // Edit page preview
+          document.getElementById("user-icon").src = previewUrl;          // Header icon
+      };
+      reader.readAsDataURL(file);
   }
-}
+});
+

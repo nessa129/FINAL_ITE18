@@ -2,45 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 class MembershipController extends Controller
 {
-    public function checkMembershipStatus(Request $request)
-{
-    // Validate the user ID (assuming it's the 'id' field)
-    $request->validate([
-        'memberId' => 'required|integer|exists:users,id', // Ensure you are validating the ID field
-    ]);
+    public function checkStatus(Request $request)
+    {
+        // Validate the student_id input
+        $request->validate([
+            'student_id' => 'required|string',
+        ]);
 
-    // Find the user by their ID
-    $user = User::where('id', $request->input('memberId'))->first(); // Use 'id' to find the user
+        // Find the user by student_id
+        $user = User::where('student_id', $request->student_id)->first();
 
-    // Check if the user exists
-    if ($user) {
-        // Ensure the 'join_date' is valid
-        if (is_null($user->join_date)) {
-            return response()->json(['status' => 'Error', 'message' => 'Join date is missing.']);
+        // If user not found, return a "Not Found" response
+        if (!$user) {
+            return response()->json(['status' => 'Not Found']);
         }
 
-        // Process the join date and expiry
-        $joinDate = new Carbon($user->join_date);
-        $expiryDate = $joinDate->addYear(); // Add one year to the join date
+        // Get the current date and check if membership is expired
         $currentDate = Carbon::now();
+        $status = 'Active'; // Default status is Active
+        $expiry = $user->membership_expiry; // Assuming `membership_expiry` is a Carbon instance or a date field
 
-        // Determine if the membership is active or expired
-        $status = $currentDate->lessThan($expiryDate) ? 'Active' : 'Expired';
+        // If the current date is greater than the expiry date, the membership is expired
+        if ($currentDate->gt($expiry)) {
+            $status = 'Expired';
+        }
 
+        // Return the membership status and expiry date as JSON
         return response()->json([
             'status' => $status,
-            'expiry' => $expiryDate->toDateString(), // Return the expiry date as a string
+            'expiry' => $expiry ? $expiry->format('Y-m-d') : null, // Format expiry date if it exists
         ]);
     }
 
-    // If no user is found, return 'Not Found'
-    return response()->json(['status' => 'Not Found']);
-}
-
+    public function index()
+    {
+        // Add logic to fetch data for the membership page
+        return view('membership'); // Ensure the 'membership' view exists
+    }
 }

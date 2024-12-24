@@ -33,7 +33,15 @@
         <li><a href="#">Home</a></li>
         <li><a href="view">View Profile</a></li>
         <li><a href="#">Edit Profile</a></li>
-        <li><a href="login">Log Out</a></li>
+        <li>
+  <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+    @csrf
+    <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer;">
+      Log Out
+    </button>
+  </form>
+</li>
+
       </ul>
     </div>
 
@@ -49,7 +57,7 @@
           <li><a href="membership">Membership</a></li>
           <li><a href="#">Learning Materials</a></li>
           <li><a href="#">Events</a></li>
-          <li><a href="#">Merchandise</a></li>
+          <li><a href="merch">Merchandise</a></li>
         </ul>
       </div>
 
@@ -60,13 +68,12 @@
     <h2>Renew Your Membership</h2>
     <p><strong>Status:</strong> {{ $user->membership_status }}</p>
     <p><strong>Current Expiry Date:</strong> {{ $user->membership_expiry }}</p>
-    <form action="{{ route('renew.membership') }}" method="POST">
+    <form action="{{ route('renew') }}" method="POST">
         @csrf
         <label for="renewalPeriod">Renewal Period:</label>
         <select id="renewalPeriod" name="renewalPeriod" required>
             <option value="1">1 Year</option>
-            <option value="2">2 Years</option>
-            <option value="3">3 Years</option>
+  
         </select>
         <button type="submit">Confirm and Submit</button>
     </form>
@@ -78,7 +85,7 @@
     <script src="{{ asset('js/member.js') }}"></script> 
 </body>
 
-    <footer class="footer-rectangle">
-     <p>2024 All Rights Reserved | Caraga State University</p>
-    </footer>
+<footer class="footer-rectangle">
+    <p>2024 All Rights Reserved | Caraga State University-Main Campus</p>
+  </footer>
 </html>

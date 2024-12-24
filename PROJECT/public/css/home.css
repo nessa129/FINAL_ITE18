@@ -349,7 +349,7 @@ button:hover {
   color: #000;
   text-decoration: none;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 530;
 }
 
 /* Close Icon in User Menu */
@@ -376,6 +376,12 @@ button:hover {
   font-size: 23px;
   color: black; /* Adjust as needed */
   cursor: pointer;
+  transition: color 0.3s ease;
+  }
+  
+  /* Hover effect */
+.notification-icon:hover {
+  color: rgb(255, 136, 0); 
 }
 
 .user-name {
@@ -389,6 +395,11 @@ button:hover {
   height: 38px;
   border-radius: 50%; /* Makes the image circular */
   cursor: pointer;
+}
+
+/* Hover effect */
+.user-icon:hover {
+  transform: scale(1.1);
 }
 
 /* Media Query for smaller screens (e.g., tablets and mobile) */
@@ -406,4 +417,53 @@ button:hover {
     width: 95%; /* Further reduce width */
     padding: 10px; /* Adjust padding for mobile */
   }
+}
+
+#menu-icon {
+  font-size: 22px; 
+  color: #000; 
+  cursor: pointer; 
+  
+  transition: transform 0.2s; 
+}
+
+#menu-icon:hover {
+  transform: scale(1.2); 
+  color: #007bff; 
+}
+
+/* General section styling */
+.cards {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap to the next row */
+  gap: 20px; /* Adds space between cards */
+  justify-content: center; /* Centers cards in the container */
+  padding: 20px;
+  margin: 0 auto;
+}
+
+
+
+/* Hover effect for cards */
+.card:hover {
+  transform: translateY(-2px); /* Slightly raises the card */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(50% - 20px); /* Each card takes half the row */
+  }
+
+  .logo img {
+    max-width: 70px; /* Reduce image size */
+  }
+
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex: 1 1 100%; /* Each card takes the full width */
+  }
+
 }

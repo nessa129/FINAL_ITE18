@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\View;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MembershipController;
+use App\Http\Controllers\RenewalController;
+
 
 
 Route::get('/user/{id}', [ViewController::class, 'show'])->name('view');
@@ -45,10 +49,10 @@ Route::get('/renew', function () {
 })->middleware('auth')->name('renew');
 
 
-// Show user profile page
 Route::get('/view', function () {
-    $user = Auth::user(); // Get the currently authenticated user
-    return view('view', compact('user')); // Pass user data to the view
+    $user = Auth::user();
+    \Log::info('User Membership Expiry:', ['expiry' => $user->membership_expiry]);
+    return view('view', compact('user'));
 })->middleware('auth')->name('view');
 
 
@@ -67,3 +71,52 @@ Route::post('/edit', [UserController::class, 'update'])->middleware('auth')->nam
 Route::post('/profile-picture', [ProfileController::class, 'updateProfilePicture'])
     ->middleware('auth')
     ->name('profile.updatePicture');
+
+
+    Route::get('/merch', function () {
+        return view('merch');
+    })->middleware('auth')->name('merch');
+    
+    Route::get('/payment', function () {
+        return view('payment');
+    })->middleware('auth')->name('payment');
+    
+    
+// View Profile
+Route::get('/profile', [ViewController::class, 'view'])->name('user.view');
+
+// Edit Profile
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('user.edit');
+
+// Update Profile
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('user.update');
+    
+    
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+    Route::post('/membership/check-status', [MembershipController::class, 'checkStatus']);
+
+
+    Route::post('/renew', [RenewalController::class, 'renew'])->name('renew');
+
+
+Route::get('/membership', [MembershipController::class, 'index'])->name('membership');
+
+Route::post('/view/delete-picture', [ViewController::class, 'deleteProfilePicture'])->name('view.deletePicture');
+
+Route::post('/profile/delete-picture', [ProfileController::class, 'deleteProfilePicture'])->name('profile.deletePicture');
+
+
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/home', function () {
+        $user = Auth::user();
+        return view('home', compact('user'));
+    })->name('home');
+    
+    // Other routes for authenticated users...
+});
+
+Route::post('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');
+Route::post('/profile/picture', [ProfileController::class, 'storeProfilePicture'])->name('profile.updatePicture');

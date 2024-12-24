@@ -1,0 +1,739 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: url(../img/bg.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  background: rgba(10, 147, 150, 0.7); /* Aqua blue tint with 20% opacity */
+  background-size: cover;
+  z-index: -1; /* Ensure it sits behind the content */
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #D9D9D9;
+  padding: 5px 30px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+  opacity: 0.70;
+}
+
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo h1 {
+  font-family: 'Kreon', serif; /* Apply the Kreon font */
+  font-size: 28px; /* Adjust the size as needed */
+  font-weight: 500; /* Optional: Choose weight (400, 500, 700) */
+  margin: 0; /* Remove default margin */
+  color: #014849; /* Adjust the text color */
+}
+
+
+header .logo img {
+  height: 85px;
+  margin-right: 10px;
+}
+
+header .icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header .icons i {
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+}
+
+header .icons img.user-icon {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+header .icons i:hover {
+  color: #000; 
+}
+
+/* Sidebar Menu */
+#sidebar-menu {
+  position: absolute;
+  top: 105px;
+  right: 3px;
+  width: 200px;
+  background: #D9D9D9;
+  opacity: 0.70;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  z-index: 100;
+  text-align: center; 
+}
+
+#sidemenu {
+  width: 230px; 
+  height: 333px;
+  position: absolute;
+  background: #D9D9D9;
+  display: none;
+  z-index: 100;
+  text-align: center; 
+  margin-left: 46.6rem;
+  margin-bottom: 2.6rem;
+  background-color: #D9D9D9; 
+  margin-bottom: -0.7rem;
+}
+
+#sidebar-menu.visible {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+#payment.visible {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+#sidemenu.visible {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+#sidebar-menu ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+#sidebar-menu ul li {
+  padding: 15px 0;
+}
+
+#sidebar-menu ul li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#sidebar-menu ul li a:hover {
+  color: #149ea3; /* Highlight color on hover */
+}
+
+/* Close Button */
+#close-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+}
+
+#close-icon:hover {
+  color: #ff6b6b; /* Red hover effect */
+}
+
+/* General card style */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px; /* Adjust the space above the section */
+}
+
+
+.card .line {
+  display: block; /* Ensures the line behaves like a block element */
+  width: 100%; /* Adjusted width relative to the card */
+  height: 1px; /* Thickness of the line */
+  background-color: #000000; /* Line color */
+  border: none; /* Remove any borders */
+  box-sizing: border-box; /* Include padding and borders in width */
+}
+
+
+/* Button Styling Inside Rectangles */
+button {
+    align-self: center;
+    background-color: #097476;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 44px;
+    height: 44px;
+    font-family: 'Kreon', sans-serif;
+    cursor: pointer;
+    width: 9rem;
+    font-size: 20px;
+}
+
+button:hover {
+  background-color: #0A9396;
+}
+
+
+.rectangle-22 {
+  box-sizing: border-box;
+  position: relative; /* Relative for child alignment */
+  width: 980px; 
+  height: 450px; 
+  margin: 30px auto; 
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px; 
+}
+
+
+/* Footer Rectangle (Rectangle 21) */
+.footer-rectangle {
+  box-sizing: border-box;
+  position: fixed; /* Stays fixed at the bottom */
+  width: 100%; /* Full width of the viewport */
+  height: 35px; /* Adjusted height */
+  bottom: 0; /* Aligns to the bottom of the viewport */
+  background: #FFFFFF; /* Background color */
+  border-top: 1px solid #000000; /* Border for a clean separation */
+  display: flex; /* Use Flexbox for alignment */
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+}
+
+/* Footer Text */
+.footer-rectangle p {
+  font-family: 'Kreon', sans-serif; /* Kreon font */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px; /* Slightly increased for better readability */
+  line-height: 15px;
+  color: #097476; /* Text color */
+  margin: 0; /* Remove default margins */
+  text-align: center; /* Center the text */
+}
+
+
+.container{
+  z-index: 100;
+}
+
+.Merch {
+  font-family: 'Kreon', sans-serif;
+    font-size: 19px;
+    color: #FF6200;
+    margin-bottom: 383px;
+}
+.shirt {
+  display: flex;
+  align-items: flex-start;
+}
+
+.shirt img {
+  height: auto;
+  width: 41%;
+  margin-right: 209px;
+  margin-top: 13px;
+  margin-left: 53px;
+}
+
+.Text{
+  font-family:'kreon', sans-serif;
+  font-size: 18px;
+  text-align: justify; 
+  list-style-type: none;
+  font-weight: bold;
+  padding-left: 52px;
+  margin-top: 14px;
+}
+
+.line {
+    width: 102%;
+    height: 1px;
+    background-color: #000000;
+    margin-bottom: 812px;
+     
+  }
+  
+.addtocart {
+    align-self: center;
+    color: white;
+    padding: 5px 30px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Kreon', sans-serif;
+    cursor: pointer;
+    margin-top: -55px ;
+    margin-left: -158px;
+
+}
+
+.gray-box {
+  background-color: #D9D9D9; 
+  width: 230px; 
+  height: 280px; 
+  padding: 20px; 
+  color: white; 
+  text-align: center; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  margin: auto; 
+  margin-top: -361px;
+  margin-left: 708px;
+}
+
+
+
+.menuicon{
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+  margin-top: 1.6rem;
+  padding-left: 18rem;
+}
+
+#sidemenu {
+  position: absolute;
+  top: 60px;
+  right: 4px;
+  width: 200px;
+  background: #D9D9D9;
+  opacity: 0.95;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  z-index: 100;
+  text-align: center; 
+}
+
+#sidemenu.visible {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+#sidemenu ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+#sidemenu ul li {
+  padding: 15px 0;
+}
+
+#sidemenu ul li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#sidemenu ul li a:hover {
+  color: #149ea3; /* Highlight color on hover */
+}
+
+
+#closeicon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+}
+
+#closeicon:hover {
+  color: #ff6b6b; /* Red hover effect */
+}
+.title{
+  display: flex;
+}
+
+h1{
+  margin-left: 21rem;
+  font-family:'kreon', sans-serif;
+  color: #FF6200;
+
+}
+
+.checkout {
+  align-self: center;
+  color: white;
+  padding: 5px 30px;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Kreon', sans-serif;
+  cursor: pointer;
+  margin-top: 70px;
+  margin-left: 7px;
+}
+h5{
+  font-size: 20px;
+  font-family:'kreon', sans-serif;
+  font-weight: bold;
+  color: #000;
+}
+span{
+  font-size: 20px;
+  font-family:'kreon', sans-serif;
+  font-weight: bold;
+  color: #000;
+}
+
+.space{
+  margin-left: 25px;
+}
+
+.screen {
+  background: linear-gradient(90deg, #2b16ca, #4740a3);
+  position: relative;
+  height: 600px;
+  width: 360px;
+  box-shadow: 0px 0px 24px #242044;
+}
+.screen__content {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+}
+.screen__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+}
+.screen__background__shape {
+  transform: rotate(45deg);
+  position: absolute;
+}
+.screen__background__shape1 {
+  height: 520px;
+  width: 520px;
+  background: #FFF;
+  top: -50px;
+  right: 120px;
+  border-radius: 0 72px 0 0;
+}
+.screen__background__shape2 {
+  height: 220px;
+  width: 220px;
+  background: #6C63AC;
+  top: -172px;
+  right: 0;
+  border-radius: 32px;
+}
+.screen__background__shape3 {
+  height: 540px;
+  width: 190px;
+  background: linear-gradient(270deg, #5D54A4, #6A679E);
+  top: -24px;
+  right: 0;
+  border-radius: 32px;
+}
+.screen__background__shape4 {
+  height: 400px;
+  width: 200px;
+  background: #7E7BB9;
+  top: 420px;
+  right: 50px;
+  border-radius: 60px;
+}
+.login {
+  width: 320px;
+  padding: 30px;
+  padding-top: 156px;
+}
+.login__field {
+  padding: 20px 0px;
+  position: relative;
+}
+.login__icon {
+  position: absolute;
+  top: 30px;
+  color: #7875B5;
+}
+.login__input {
+  border: none;
+  border-bottom: 2px solid #D1D1D4;
+  background: none;
+  padding: 10px;
+  padding-left: 24px;
+  font-weight: 700;
+  width: 75%;
+  transition: 0.2s;
+}
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+  outline: none;
+  border-bottom-color: #6A679E;
+}
+.login__submit {
+  background: #fff;
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 16px 20px;
+  border-radius: 26px;
+  border: 1px solid #D4D3E8;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #4C489D;
+  box-shadow: 0px 2px 2px #5C5696;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+  border-color: #6A679E;
+  outline: none;
+}
+.button__icon {
+  font-size: 24px;
+  margin-left: auto;
+  color: #7875B5;
+}
+.social-login {
+  position: absolute;
+  height: 140px;
+  width: 160px;
+  text-align: center;
+  bottom: 0px;
+  right: 0px;
+  color: #fff;
+}
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social-login__icon {
+  padding: 20px 10px;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0px 0px 8px #7875B5;
+}
+.social-login__icon:hover {
+  transform: scale(1.5);
+}
+
+
+/* Adjust styles for small screens (e.g., mobile devices) */
+@media screen and (max-width: 768px) {
+  
+
+  .rectangle-22 {
+    width: 90%; /* Full width with some margin on mobile */
+    margin: 20px auto; /* Center the rectangle */
+  }
+
+  .shirt img {
+    width: 90%; /* Adjust image size for mobile */
+    margin: 0 auto; /* Center the image */
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .footer-rectangle {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 20px; /* Reduce heading size for smaller screens */
+    margin-left: 0; /* Center align for mobile */
+  }
+
+  button {
+   
+    font-size: 18px; /* Adjust font size */
+    align-items: center;
+    margin-left: 25rem;
+  }
+
+  .menuicon{
+    font-size: 22px;
+    margin-top: 1rem;
+    padding-left: 14rem;
+  }
+
+  .checkout {
+    margin-left: -24rem;
+  }
+
+  #sidemenu {
+    top: 52px;
+  }
+
+  .logo img {
+    max-width: 70px; /* Reduce image size */
+  }
+}
+
+/* Adjust styles for very small screens (e.g., small mobile devices) */
+@media screen and (max-width: 480px) {
+
+  #sidemenu {
+    top: 52px;
+  }
+
+
+  .rectangle-22 {
+    height: auto; /* Allow rectangle to resize dynamically */
+  }
+
+  .footer-rectangle {
+    font-size: 16px; /* Adjust text size */
+  }
+
+  .screen {
+    width: 100%; /* Full width on small devices */
+    height: auto; /* Dynamic height */
+  }
+}
+
+
+.users-area {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between elements */
+}
+
+.notification-icon {
+  font-size: 23px;
+  color: black; /* Adjust as needed */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  }
+  
+  /* Hover effect */
+.notification-icon:hover {
+  color: rgb(255, 136, 0); 
+}
+
+.user-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: black; /* Adjust color */
+}
+
+.user-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%; /* Makes the image circular */
+  cursor: pointer;
+}
+
+/* Hover effect */
+.user-icon:hover {
+  transform: scale(1.1);
+}
+
+
+/* User Dropdown Menu */
+#user-menu {
+  position: absolute;
+  top: 95px; /* Position it below the user icon */
+  right: 3px;
+  width: 200px;
+  background: #D9D9D9;
+  opacity: 0.95;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  z-index: 100;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Title and Divider */
+#user-menu h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 10px;
+}
+
+#user-menu hr {
+  border: none;
+  border-top: 1px solid #000;
+  margin: 5px 0;
+}
+
+/* Menu Items */
+#user-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#user-menu ul li {
+  padding: 15px 0;
+}
+
+#user-menu ul li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Close Icon in User Menu */
+#user-menu #user-menu-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+}
+
+#user-menu #user-menu-close:hover {
+  color: #ff6b6b; /* Red hover effect */
+}
+
+#menu-icon {
+  font-size: 22px; 
+  color: #000; 
+  cursor: pointer; 
+  
+  transition: transform 0.2s; 
+}
+
+#menu-icon:hover {
+  transform: scale(1.2); 
+  color: #007bff; 
+}

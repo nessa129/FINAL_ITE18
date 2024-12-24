@@ -17,11 +17,24 @@
                 <input type="text" name="student_id" placeholder="Student ID" required />
                 <input type="text" name="program" placeholder="Program" required />
                 <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="password" placeholder="Password" required />
+                <input type="password" id="password" name="password" placeholder="Password" required />
+                <small id="password-warning" class="warning-text"></small>
+
                 <button type="submit">Sign Up</button>
             </form>
         </div>
         <div class="form-container log-in-container">
+
+        @if ($errors->any())
+    <div class="error-messages">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
         <form method="POST" action="{{ route('login.submit') }}">
                 @csrf
                 <h1>Log in</h1>
